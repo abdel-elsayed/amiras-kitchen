@@ -1,28 +1,63 @@
-import React from 'react'
+import React, { Component } from 'react'
 import {Navbar, Nav} from 'react-bootstrap'
 import './navbar.css'
 
-export default function NavBar() {
+
+
+export default class NavBar extends Component  {
+    state = {
+        auth: false,
+        slide: 0,  // How much should the Navbar slide up or down
+        lastScrollY: 0,  // Keep track of current position in state
+      };
+    
+      componentWillMount() {
+        // When this component mounts, begin listening for scroll changes
+        window.addEventListener('scroll', this.handleScroll);
+      }
+    
+      componentWillUnmount() {
+        // If this component is unmounted, stop listening
+        window.removeEventListener('scroll', this.handleScroll);
+      }
+    
+      handleScroll = () => {
+        const { lastScrollY } = this.state; 
+        const currentScrollY = window.scrollY;
+    
+    
+        if (currentScrollY > lastScrollY) {
+          this.setState({ slide: '-250px' });
+        } else {
+          this.setState({ slide: '0px' });
+        }
+        this.setState({ lastScrollY: currentScrollY });
+      };
+    
+    render(){
     return (
         <div >
-            <Navbar style={{ background:"rgb(255,255,255, 0.85)"}} fixed="top" t expand="md"  variant="light" className="animate-navbar nav-theme justify-content-center">
-                <div>
-                        <Navbar.Brand href="#home">
-                            <img className="logo" src="https://res.cloudinary.com/dnkxmjpxy/image/upload/v1613789506/Amira_s_Kitchen_cquefo.gif" alt="logo" />
-                            <Navbar.Toggle className="ml-5"aria-controls="responsive-navbar-nav" />   
-                            <Navbar.Collapse  id="responsive-navbar-nav">
-                            <Nav className="m-auto">
-                                <Nav.Link href="#features">About me</Nav.Link>
-                                <Nav.Link href="#Recipes">Recipes</Nav.Link>
-                                <Nav.Link href="#Explore">Explore</Nav.Link>
-                            </Nav>
-                            </Navbar.Collapse>
-                       </Navbar.Brand>
-                </div>
-                <div>
-                  
-                </div>
-            </Navbar>
-        </div>
+           
+        <Navbar style={{ transform: `translate(0, ${this.state.slide})`,transition: 'transform 0.5s ease-in-out', background:"rgb(255,255,255, 0.85)"}}
+             fixed="top" expand="md" variant="light" className="animate-navbar nav-theme smart-scroll justify-content-center">
+            <div>
+                    <Navbar.Brand href="#home" >
+                        <img className="logo m-auto" src="https://res.cloudinary.com/dnkxmjpxy/image/upload/v1613789506/Amira_s_Kitchen_cquefo.gif" alt="logo" />
+                        <Navbar.Toggle className="m-auto"  aria-controls="basic-navbar-nav" />   
+                        <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="m-auto">
+                            <Nav.Link href="#features">About me</Nav.Link>
+                            <Nav.Link href="#Recipes">Recipes</Nav.Link>
+                            <Nav.Link href="#Explore">Explore</Nav.Link>
+                        </Nav>
+                        </Navbar.Collapse>
+                   </Navbar.Brand>
+            </div>
+            <div>
+              
+            </div>
+        </Navbar>
+    </div>
     )
+}
 }

@@ -25,6 +25,7 @@ const MyCarousal = () => {
         </Carousel.Item>
        
       </Carousel>
+      
     </div>
   );
 };
