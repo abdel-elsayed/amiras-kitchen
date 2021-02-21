@@ -3,42 +3,50 @@ import { Link } from 'react-router-dom';
 import {Container, Row, Col, Image} from 'react-bootstrap'
 import './MainSection.css'
 
+
 export default function MainSection() {
     return (
-        
-            <Container className='mt-5' style={{padding:"2rem", background:"rgb(255,255,255, 0.5)", borderRadius:"1em"}}>
+        <div >
+            <Container style={{padding:"4rem", background:"rgb(255,255,255, 0.5)",borderRadius:"1em"}}>
                     <Row >
                         <Col md={4}>
                             <Image
-                                    src="https://res.cloudinary.com/dnkxmjpxy/image/upload/v1613798758/AmiraMainPic_lnnmzz.jpg"
+                                    style={{boxShadow:" 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"}}
+                                    src="https://res.cloudinary.com/dnkxmjpxy/image/upload/v1613874980/IMG_7406_hkjz1l.png"
                                     rounded
                                     alt="Responsive image"
                              />
                         </Col>
                     <Col md-4 >
-                        <div class=" border-0">
-                                <h3 >Welcome to my Kitchen</h3>
-                                <p >
-                                    I am Amira Elsayed,
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sollicitudin tellus non augue lobortis laoreet.
-                                     Donec nisi ante, molestie ac massa quis, faucibus fermentum risus. Sed feugiat est ut urna finibus fringilla.
-                                      Proin vitae elit consequat, hendrerit dui id, mattis ipsum. Vivamus congue dignissim velit pulvinar aliquet.
-                                       Etiam tincidunt ipsum augue, ut consectetur lacus euismod in. Donec dictum ante quis condimentum suscipit.
-                                        Aliquam aliquet porta elit et scelerisque. Nullam iaculis lobortis ante eu dignissim. Nunc tincidunt, 
-                                        libero ac porttitor pretium, tortor ex fringilla erat, at malesuada dolor tellus vitae quam. Ut sit amet fermentum lectus, ut blandit purus. S
-                                        uspendisse non magna placerat, dignissim nulla id, ultricies augue. Aliquam erat volutpat. Nulla facilisi. In mollis sit amet nulla vestibulum convallis.
-                                        Maecenas nisi orci, ornare id fermentum eu, commodo eget leo. Duis pellentesque leo quis urna bibendum, et consectetur nulla semper.
+                        <div >
+                        <p className="about-2" style={{ paddingTop:"0.2rem",textAlign:"center",textDecoration: "underline overline"}}>
+                            <strong>Welcome to Amira's Kitchen</strong>
+                        </p>
+                                <p>Hello! My name is Amira. It's so very nice to meet you.</p>
+                                <p style={{ paddingTop:"0.2rem",textAlign:"left"}}>
+                                    I happily share my passion for all things salted; sweet and savory, 
+                                    in hope that you too will find pleasure, joy and sustenance in good food.
+                                    Your kitchen is a place to be creative and productive.
+                                    Meals are meant to be savored and enjoyed. Good food is simple, fresh,
+                                    seasonal and delicious.
+                                    Not Without Salt is a tool for helping you eat well and
+                                    enjoy the process of cooking and baking real, good food. 
                                 </p>
                             </div>
-                            <Link to='/about'
+                            <Link to='/'
                                 className='learn-more-button'
                             >
-                                learn more <i class="fas fa-cookie-bite"></i>
+                                Instagram <i class="fab fa-instagram"></i>
+                            </Link>
+                            <Link to='/'
+                                className='learn-more-button'
+                            >
+                                Facebook <i class="fab fa-facebook"></i>
                             </Link>
                         </Col>
                     </Row>
-
+                    
             </Container>
-
+</div>
     )
 }

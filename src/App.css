@@ -1,7 +1,27 @@
 .App {
   text-align: center;
-  background: linear-gradient(-45deg, #d9a7c7, #fffcdc);
+
   position: relative;
   min-height: 100vh;
   padding-bottom: 6rem;
+}
+
+.fade-appear,
+.fade-enter {
+  opacity: 0;
+  z-index: 1;
+}
+
+.fade-appear-active,
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms linear 150ms;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit.fade-exit-active {
+  opacity: 0;
+  transition: opacity 150 ms linear;
 }

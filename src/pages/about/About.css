@@ -1,0 +1,27 @@
+.main-about {
+  display: "flex";
+  justify-content: "center";
+  align-items: "center";
+  padding-top: "17em";
+}
+
+.sub-head {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  font-family: "Josefin Slab", serif;
+  font-size: 3rem;
+}
+
+.about-2 {
+  margin: 2rem;
+  font-size: 1.3rem;
+  text-align: left;
+}
+
+.arabic {
+  font-family: "Aref Ruqaa", serif;
+}
+
+.english {
+  font-family: "Playfair Display", serif;
+}

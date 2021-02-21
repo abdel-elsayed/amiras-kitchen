@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import {Navbar, Nav} from 'react-bootstrap'
 import './navbar.css'
-
-
+import { LinkContainer } from "react-router-bootstrap";
 
 export default class NavBar extends Component  {
     state = {
@@ -14,6 +13,7 @@ export default class NavBar extends Component  {
       componentWillMount() {
         // When this component mounts, begin listening for scroll changes
         window.addEventListener('scroll', this.handleScroll);
+        
       }
     
       componentWillUnmount() {
@@ -39,16 +39,31 @@ export default class NavBar extends Component  {
         <div >
            
         <Navbar style={{ transform: `translate(0, ${this.state.slide})`,transition: 'transform 0.5s ease-in-out', background:"rgb(255,255,255, 0.85)"}}
-             fixed="top" expand="md" variant="light" className="animate-navbar nav-theme smart-scroll justify-content-center">
+             fixed="top"  variant="light" className="animate-navbar nav-theme smart-scroll justify-content-center">
             <div>
-                    <Navbar.Brand href="#home" >
+                    <Navbar.Brand>
+                        <LinkContainer to ='/Home'>
+                        <Nav.Link >
                         <img className="logo m-auto" src="https://res.cloudinary.com/dnkxmjpxy/image/upload/v1613789506/Amira_s_Kitchen_cquefo.gif" alt="logo" />
+                       
+                        </Nav.Link>
+                         </LinkContainer>
                         <Navbar.Toggle className="m-auto"  aria-controls="basic-navbar-nav" />   
                         <Navbar.Collapse id="basic-navbar-nav">
+                        
                         <Nav className="m-auto">
-                            <Nav.Link href="#features">About me</Nav.Link>
-                            <Nav.Link href="#Recipes">Recipes</Nav.Link>
-                            <Nav.Link href="#Explore">Explore</Nav.Link>
+                        <LinkContainer to='/Home'>
+                            <Nav.Link>Home</Nav.Link>  
+                          </LinkContainer>
+                          <LinkContainer to='About'>
+                            <Nav.Link>About me</Nav.Link>  
+                          </LinkContainer>
+                          <LinkContainer to='/Recipes'>
+                            <Nav.Link>Recipes</Nav.Link>  
+                          </LinkContainer>
+                          <LinkContainer to='/Explore'>
+                            <Nav.Link>Explore</Nav.Link>  
+                          </LinkContainer>
                         </Nav>
                         </Navbar.Collapse>
                    </Navbar.Brand>
