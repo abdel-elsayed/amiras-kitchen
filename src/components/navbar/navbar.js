@@ -55,7 +55,7 @@ export default class NavBar extends Component  {
                         <LinkContainer to='/Home'>
                             <Nav.Link>Home</Nav.Link>  
                           </LinkContainer>
-                          <LinkContainer to='About'>
+                          <LinkContainer to='/About'>
                             <Nav.Link>About me</Nav.Link>  
                           </LinkContainer>
                           <LinkContainer to='/Recipes'>

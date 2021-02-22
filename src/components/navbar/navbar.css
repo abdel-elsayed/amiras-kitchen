@@ -43,6 +43,6 @@
 
 @media screen and (max-width: 768px) {
   .logo {
-    width: 50%;
+    width: 15vh;
   }
 }

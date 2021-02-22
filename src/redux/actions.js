@@ -1,0 +1,3 @@
+export const GET_ALL_RECIPES = "GET_ALL_RECIPES"
+export const GET_A_RECIPE = "GET_A_RECIPE"
+export const SAVE_ALL_RECIPES = "SAVE_ALL_RECIPES"

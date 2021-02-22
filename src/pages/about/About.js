@@ -25,7 +25,7 @@ const About = () => {
     </div>
 
     <div className="sub-head" >
-      Where aspiration and reality collide.
+     Where love and aspiration mix in a bowl
     </div>
     <hr style={{width:"50%", height:"3rem"}}/>
 
@@ -36,7 +36,7 @@ const About = () => {
       </p>
         <Row >
           
-          <Col >
+          <Col md={7}>
               <p className="about-2">
                 I happily share my passion for all things salted; sweet and savory, 
                 in hope that you too will find pleasure, joy and sustenance in good food.
@@ -47,42 +47,42 @@ const About = () => {
                 enjoy the process of cooking and baking real, good food.
               </p>
           </Col>
-          <Col >
-            <div style={{margin:"5rem", fontSize:""}}>
+          <Col>
+            <div style={{margin:"2rem 5rem 5rem 5rem ", fontSize:""}}>
             <i class="fas fa-quote-left"></i>
               <h3 className="arabic">
-              .ائما خذ في عين الإعتبيار أن قرار النجاح هو أهم من أي شيئ آخر
+                لتكن أحلامك أكبر من مخاوفك و لتكن أفعالك أعلي صوتاً من كلماتك
               </h3>
               <h3 className="english">
-                Where aspiration and reality collide.
+                Let your dreams be bigger than your fears and your actions be louder than your words.
               </h3>
               <i class="fas fa-quote-right"></i>
             </div>
           </Col>
         </Row>
       </Container>
-      <hr style={{width:"50%", height:"3rem"}}/>
+      <hr style={{width:"50%", height:"1rem"}}/>
 
 
       <Container>
-      <p className="about-2" style={{ paddingTop:"2rem",textAlign:"center",textDecoration: "underline overline"}}>
+      <p className="about-2" style={{ paddingTop:"0.5rem",textAlign:"center",textDecoration: "underline overline"}}>
         <strong>About me</strong>
       </p>
 
       <Row >
         <Col >
-            <div style={{margin:"5rem", fontSize:""}}>
+            <div style={{margin:"2rem 5rem 5rem 5rem ", fontSize:""}}>
             <i class="fas fa-quote-left"></i>
               <h3 className="arabic">
-              .ائما خذ في عين الإعتبيار أن قرار النجاح هو أهم من أي شيئ آخر
+            آمن بأحلامك، فقد مَنحها اللّه لك لحِكمة
               </h3>
               <h3 className="english">
-                Where aspiration and reality collide.
+                Believe in your dreams. They were given to you for a reason.
               </h3>
               <i class="fas fa-quote-right"></i>
             </div>
           </Col>
-          <Col >
+          <Col md={7} >
               <p className="about-2">
                 Plating intricate desserts at Spago in Beverly Hills is where my career in food began. 
                 There was a rush in preparing hundred of desserts in one night,
