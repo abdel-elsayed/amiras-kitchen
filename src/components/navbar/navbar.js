@@ -21,14 +21,22 @@ export default class NavBar extends Component  {
         window.removeEventListener('scroll', this.handleScroll);
       }
     
+    
+    
+
       handleScroll = () => {
         const { lastScrollY } = this.state; 
         const currentScrollY = window.scrollY;
-  
-        if (currentScrollY > lastScrollY) {
-          this.setState({ slide: '-250px' });
-        } else if(currentScrollY === 0){
+
+        console.log(currentScrollY)
+
+        // let scrollToTop = window.scrollTop;
+        if (currentScrollY <= 0) {
+          console.log("hahahha", currentScrollY)
           this.setState({ slide: '0px' });
+        } 
+        else if (currentScrollY > lastScrollY) {
+          this.setState({ slide: '-250px' });
         }
         else {
           this.setState({ slide: '0px' });
@@ -40,7 +48,7 @@ export default class NavBar extends Component  {
     return (
         <div >
            
-        <Navbar style={{ transform: `translate(0, ${this.state.slide})`,transition: 'transform 0.5s ease-in-out', background:"rgb(255,255,255, 0.85)"}}
+        <Navbar onTouchMove={this._onTouchMove} style={{ transform: `translate(0, ${this.state.slide})`,transition: 'transform 0.5s ease-in-out', background:"rgb(255,255,255, 0.85)"}}
              fixed="top"  variant="light" className="animate-navbar nav-theme smart-scroll justify-content-center">
             <div>
                     <Navbar.Brand>
