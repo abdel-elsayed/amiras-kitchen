@@ -34,7 +34,7 @@ function App() {
    };
   
 const pReducer = persistReducer(persistConfig, reducer);
-const store = createStore(pReducer,  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const store = createStore(pReducer);
 const persistor = persistStore(store);
 
   return (
@@ -60,7 +60,7 @@ const persistor = persistStore(store);
                             <Route exact path="/Card/:name" className="Card" component={Card} />
                           
                             <Route exact path="/">
-                              <Redirect to="/home" />
+                              <Redirect to="/Home" />
                             </Route>
                           </div>
                       </Switch>

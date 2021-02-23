@@ -4,7 +4,7 @@ import React from "react";
 // import  Skills  from "../Skills";
 // import Experience from "../Experience";
 // import ScrollAnimation from 'react-animate-on-scroll'
-import {Container, Row, Col, Image} from 'react-bootstrap'
+import {Container, Row, Col} from 'react-bootstrap'
 import './About.css'
 
 import MainSection from '../../components/main-section/MainSection.js'
