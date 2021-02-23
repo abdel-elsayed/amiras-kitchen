@@ -2,11 +2,11 @@ import React, {useEffect} from 'react'
 import { connect } from 'react-redux'
 import './card.css'
 import {Container, Row, Col, Carousel} from 'react-bootstrap'
-import createDOMPurify from 'dompurify'
-import { JSDOM } from 'jsdom'
+// import createDOMPurify from 'dompurify'
+// import { JSDOM } from 'jsdom'
 
-const window = (new JSDOM('')).window
-const DOMPurify = createDOMPurify(window)
+// const window = (new JSDOM('')).window
+// const DOMPurify = createDOMPurify(window)
 
 
 function Card (props) {
@@ -44,7 +44,7 @@ useEffect(() => {
                     </Col>
                     <Col md={7}>
                            { <div className="ing" style={{lineHeight: "10pt", padding:"1rem", textDecoration:"none"}}
-                            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(recipe.description) }} /> }
+                            dangerouslySetInnerHTML={{ __html:recipe.description }} /> }
                     </Col>
                 </Row>
 
@@ -53,7 +53,7 @@ useEffect(() => {
                 <Row>
                     <Col md={7}>
                            { <div className="directions"
-                            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(recipe.directions) }} /> }
+                            dangerouslySetInnerHTML={{ __html: recipe.directions }} /> }
                     </Col>
                     <Col md={5} >
                     <iframe width="560" height="315" style={{marginTop:"0.2rem", marginBottom:"2rem", width:"95%", border:"5px solid #904785", borderRadius:"2rem"}}
