@@ -5,20 +5,26 @@ import { EasybaseProvider } from "easybase-react"
 import {createStore} from'redux'
 import { Provider } from "react-redux";
 import reducer from './redux/reducer'
-
+import React, { Suspense, lazy } from 'react'
 
 import ebconfig from './ebconfig'
 import NavBar from './components/navbar/navbar.js'
 import Footer from './components/footer/Footer.js'
-import About from './pages/about/About'
-import Home from "./pages/home/Home";
-import Recipes from './pages/recipes/recipes'
-import Card from './pages/card/card'
+// import About from './pages/about/About'
+// import Home from "./pages/home/Home";
+// import Recipes from './pages/recipes/recipes'
+// import Card from './pages/card/card'
 import { BrowserRouter} from "react-router-dom";
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 import { PersistGate } from 'redux-persist/lib/integration/react';
+
+
+const Home = lazy(() => import('./pages/home/Home'));
+const About = lazy(() => import('./pages/about/About'));
+const Recipes = lazy(() => import('./pages/recipes/recipes'));
+const Card = lazy(() => import('./pages/card/card'));
 
 function App() {
   const persistConfig = {
@@ -36,6 +42,7 @@ const persistor = persistStore(store);
       <Provider store={store}>
         <PersistGate  persistor={persistor}>
           <BrowserRouter>
+          <Suspense fallback={<div>Loading...</div>}>
             <NavBar />
             <Route render={({location}) => (
               <EasybaseProvider ebconfig={ebconfig}>
@@ -61,6 +68,7 @@ const persistor = persistStore(store);
                   </TransitionGroup>
                 </EasybaseProvider>
               )} />
+              </Suspense>
             </BrowserRouter>
           </PersistGate>
         </Provider>
