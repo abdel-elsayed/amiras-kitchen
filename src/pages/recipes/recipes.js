@@ -4,7 +4,7 @@ import { Container, Row, Col , Card} from 'react-bootstrap';
 import { Link } from 'react-router-dom'
 import {connect} from 'react-redux'
 import { SAVE_ALL_RECIPES } from '../../redux/actions';
-
+import './recipes.css'
 
 
 function Recipes({save, recipes}) {
