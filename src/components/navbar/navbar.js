@@ -54,7 +54,7 @@ export default class NavBar extends Component  {
                     <Navbar.Brand>
                         <LinkContainer to ='/Home'>
                         <Nav.Link >
-                        <img className="logo m-auto" src="https://res.cloudinary.com/dnkxmjpxy/image/upload/v1613789506/Amira_s_Kitchen_cquefo.gif" alt="logo" />
+                        <img className="logo m-auto" src="https://res.cloudinary.com/dnkxmjpxy/image/upload/v1614113854/Amira_s_Kitchen_xsaykj.gif" alt="logo" />
                        
                         </Nav.Link>
                          </LinkContainer>
