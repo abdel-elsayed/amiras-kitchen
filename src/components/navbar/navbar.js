@@ -24,11 +24,13 @@ export default class NavBar extends Component  {
       handleScroll = () => {
         const { lastScrollY } = this.state; 
         const currentScrollY = window.scrollY;
-    
-    
+  
         if (currentScrollY > lastScrollY) {
           this.setState({ slide: '-250px' });
-        } else {
+        } else if(currentScrollY === 0){
+          this.setState({ slide: '0px' });
+        }
+        else {
           this.setState({ slide: '0px' });
         }
         this.setState({ lastScrollY: currentScrollY });

@@ -35,7 +35,7 @@ export default function MainSection() {
                         <div style={{padding: "2rem"}}>
                             <a
                             rel="noreferrer"
-                                href="https://www.linkedin.com/in/abdelrahman-elsayed-318539145/"
+                                href="https://www.instagram.com/food_by_amiraelsayed/"
                                 className='learn-more-button'
                                 target="_blank"
                             >
@@ -43,7 +43,7 @@ export default function MainSection() {
                             </a>
                             <a
                             rel="noreferrer"
-                                href="https://github.com/abdel-elsayed"
+                                href="https://www.facebook.com/"
                                 className='learn-more-button'
                                 target="_blank"
                             >

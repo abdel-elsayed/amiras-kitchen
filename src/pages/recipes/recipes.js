@@ -29,10 +29,11 @@ function Recipes({save, recipes}) {
                 <i style={{color:"white"}}className="fas fa-arrow-down fa-3x"></i>  
             </div>
         </div>
-        <div className="sub-head" >
+        <div className="sub-head" style={{}} >
            Something that is made with love, will always taste great!
         </div>
-            <hr style={{width:"50%", height:"3rem"}}/>
+
+        <hr style={{width:"50%", height:"3rem"}}/>
 
         <div style={{
             display: "flex",
