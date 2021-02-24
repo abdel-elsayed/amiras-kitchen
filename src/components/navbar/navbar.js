@@ -28,11 +28,9 @@ export default class NavBar extends Component  {
         const { lastScrollY } = this.state; 
         const currentScrollY = window.scrollY;
 
-        console.log(currentScrollY)
-
+      
         // let scrollToTop = window.scrollTop;
         if (currentScrollY <= 0) {
-          console.log("hahahha", currentScrollY)
           this.setState({ slide: '0px' });
         } 
         else if (currentScrollY > lastScrollY) {

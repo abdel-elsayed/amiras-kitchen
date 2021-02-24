@@ -17,7 +17,7 @@ function Recipes({save, recipes}) {
     useEffect(() => {
        configureFrame({ limit: 20, offset: 0});
        sync();
-       save(SAVE_ALL_RECIPES, Frame());
+    //   save(SAVE_ALL_RECIPES, Frame());
     })
     
 
@@ -42,15 +42,15 @@ function Recipes({save, recipes}) {
             paddingTop:"5em",
             }}>
                 
-            <div style={{backgroundColor:"white", padding:"2rem", width:"100%"}}>
-            <p style={{ fontSize:"30px",textAlign:"center", fontFamily:"Snell Roundhand, cursive"}}>
+            <div style={{backgroundColor:"white", width:"100%"}}>
+            {/* <p style={{ fontSize:"30px",textAlign:"center", fontFamily:"Snell Roundhand, cursive", padding:"2rem"}}>
                 <strong>Recipes</strong>
-            </p>
+            </p> */}
 
             <Container >
-                    <Row  >
+                    <Row className="pl-4" >
                         {Frame().map((ele, i) => 
-                            <Col sm={4}>
+                            <Col sm={4} md={6} lg={4}>
                                 <Card style={{ width: '17rem', borderRadius:"3rem", marginTop:"1rem" }}>
                                 <Card.Img style={{height:"15rem", borderRadius:"2rem", objectFit:"cover"}} src={ele.image} />
                                 <Card.Body >
