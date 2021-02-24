@@ -47,13 +47,13 @@ function Recipes({save, recipes}) {
                 <strong>Recipes</strong>
             </p>
 
-            <Container className="col-12">
-                    <Row >
+            <Container >
+                    <Row  >
                         {Frame().map((ele, i) => 
-                            <Col>
-                                <Card style={{ width: '18rem', borderRadius:"3rem", marginTop:"1rem" }}>
-                                <Card.Img style={{height:"20rem", borderRadius:"2rem"}}variant="top" src={ele.image} />
-                                <Card.Body style={{backgroundColor:""}}>
+                            <Col sm={4}>
+                                <Card style={{ width: '17rem', borderRadius:"3rem", marginTop:"1rem" }}>
+                                <Card.Img style={{height:"15rem", borderRadius:"2rem", objectFit:"cover"}} src={ele.image} />
+                                <Card.Body >
                                     <Card.Title style={{textDecoration: "underline overline"}}>{ele.name}</Card.Title>
                                     <Card.Text>
                                     {ele.subdescription}

@@ -46,14 +46,15 @@ const persistor = persistStore(store);
             <NavBar />
             <Route render={({location}) => (
               <EasybaseProvider ebconfig={ebconfig}>
-                  <TransitionGroup>
+                  <TransitionGroup component={null}>
                     <CSSTransition
                       key={location.key}
+                      in = {true}
                       timeout={500}
                       classNames="fade"
                     >
                       <Switch>
-                          <div className="content-wrapper">
+                          
                             <Route exact path="/Home" className="Home" component={Home} />
                             <Route exact path="/About" className="About" component={About} />
                             <Route exact path="/Recipes" className="Recipes" component={Recipes} />
@@ -62,7 +63,7 @@ const persistor = persistStore(store);
                             <Route exact path="/">
                               <Redirect to="/Home" />
                             </Route>
-                          </div>
+                   
                       </Switch>
                     </CSSTransition>
                   </TransitionGroup>
