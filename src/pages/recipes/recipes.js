@@ -12,7 +12,7 @@ function Recipes({ save, recipes }) {
   useEffect(() => {
     configureFrame({ limit: 20, offset: 0 });
     sync();
-    // save(SAVE_ALL_RECIPES, Frame());
+    save(SAVE_ALL_RECIPES, Frame());
   });
 
   return (
@@ -56,6 +56,7 @@ function Recipes({ save, recipes }) {
             <Row className="pb-5 ">
               {Frame().map((ele, i) => (
                 <Col
+                  key={i}
                   style={{
                     display: "flex",
                     justifyContent: "center",
@@ -87,7 +88,7 @@ function Recipes({ save, recipes }) {
                         to={`/card/${ele.name}`}
                         className="learn-more-button"
                       >
-                        view <i class="fas fa-utensils"></i>
+                        view <i className="fas fa-utensils"></i>
                       </Link>
                     </Card.Body>
                   </Card>
