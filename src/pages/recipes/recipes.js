@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { SAVE_ALL_RECIPES } from "../../redux/actions";
 import "./recipes.css";
+import { Link as Linky } from "react-scroll";
 
 function Recipes({ save, recipes }) {
   const { Frame, configureFrame, sync } = useEasybase();
@@ -22,8 +23,13 @@ function Recipes({ save, recipes }) {
           className="d-block w-100 custom-img"
           src="https://images.unsplash.com/photo-1513104806186-1b00f3e7a65e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"
         ></img>
-        <div className="downArrow bounce">
+        {/* <div className="downArrow bounce">
           <i style={{ color: "white" }} className="fas fa-arrow-down fa-3x"></i>
+        </div> */}
+        <div className="downArrow bounce">
+          <Linky to="recipes">
+            <i class="fas fa-cookie-bite fa-3x"></i>
+          </Linky>
         </div>
       </div>
       <div className="sub-head" style={{}}>
@@ -31,7 +37,7 @@ function Recipes({ save, recipes }) {
       </div>
 
       <hr style={{ width: "50%", height: "3rem" }} />
-
+      <div id="recipes"></div>
       <div
         style={{
           display: "flex",
@@ -43,13 +49,13 @@ function Recipes({ save, recipes }) {
         <div style={{ backgroundColor: "white", width: "100%" }}>
           <p
             style={{
-              fontSize: "30px",
+              fontSize: "3rem",
               textAlign: "center",
-              fontFamily: "Snell Roundhand, cursive",
+              fontFamily: "'Brush Script MT', cursive",
               padding: "2rem",
             }}
           >
-            <strong>Recipes</strong>
+            Recipes
           </p>
 
           <Container>
