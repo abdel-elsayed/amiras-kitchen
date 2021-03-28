@@ -12,7 +12,7 @@ function Footer() {
           target="_blank"
           aria-label="facebook"
         >
-          <i class="fab fa-facebook-f"></i>
+          <i className="fab fa-facebook-f"></i>
         </a>
         <a
           rel="noreferrer"
