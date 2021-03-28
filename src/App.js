@@ -7,7 +7,7 @@ import { Provider } from "react-redux";
 import reducer from "./redux/reducer";
 import React, { Suspense, lazy } from "react";
 
-import ebconfig from "./ebconfig";
+// import ebconfig from "./ebconfig";
 import NavBar from "./components/navbar/navbar.js";
 import Footer from "./components/footer/Footer.js";
 import { BrowserRouter } from "react-router-dom";
@@ -39,51 +39,52 @@ function App() {
           <BrowserRouter>
             <Suspense fallback={<div>Loading...</div>}>
               <NavBar />
+
               <Route
                 render={({ location }) => (
-                  <EasybaseProvider ebconfig={ebconfig}>
-                    <TransitionGroup component={null}>
-                      <CSSTransition
-                        key={location.key}
-                        in={true}
-                        timeout={500}
-                        classNames="fade"
-                      >
-                        <Switch>
-                          <Route
-                            exact
-                            path="/Home"
-                            className="Home"
-                            component={Home}
-                          />
-                          <Route
-                            exact
-                            path="/About"
-                            className="About"
-                            component={About}
-                          />
-                          <Route
-                            exact
-                            path="/Recipes"
-                            className="Recipes"
-                            component={Recipes}
-                          />
-                          <Route
-                            exact
-                            path="/Card/:name"
-                            className="Card"
-                            component={Card}
-                          />
+                  // <EasybaseProvider ebconfig={ebconfig}>
+                  <TransitionGroup component={null}>
+                    <CSSTransition
+                      key={location.key}
+                      in={true}
+                      timeout={500}
+                      classNames="fade"
+                    >
+                      <Switch>
+                        <Route
+                          exact
+                          path="/Home"
+                          className="Home"
+                          component={Home}
+                        />
+                        <Route
+                          exact
+                          path="/About"
+                          className="About"
+                          component={About}
+                        />
+                        <Route
+                          exact
+                          path="/Recipes"
+                          className="Recipes"
+                          component={Recipes}
+                        />
+                        <Route
+                          exact
+                          path="/Card/:name"
+                          className="Card"
+                          component={Card}
+                        />
 
-                          <Route exact path="/">
-                            <Redirect to="/Home" />
-                          </Route>
-                        </Switch>
-                      </CSSTransition>
-                    </TransitionGroup>
-                  </EasybaseProvider>
+                        <Route exact path="/">
+                          <Redirect to="/Home" />
+                        </Route>
+                      </Switch>
+                    </CSSTransition>
+                  </TransitionGroup>
+                  // </EasybaseProvider>
                 )}
-              />
+              ></Route>
             </Suspense>
           </BrowserRouter>
         </PersistGate>

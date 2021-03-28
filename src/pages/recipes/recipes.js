@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useEasybase } from "easybase-react";
+import { client } from "../../ebconfig";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
@@ -10,12 +11,23 @@ import { Link as Linky } from "react-scroll";
 function Recipes({ save, recipes }) {
   const { Frame, configureFrame, sync } = useEasybase();
 
-  useEffect(() => {
-    configureFrame({ limit: 20, offset: 0 });
-    sync();
-    save(SAVE_ALL_RECIPES, Frame());
-  });
+  // useEffect(() => {
+  //   configureFrame({ limit: 20, offset: 0 });
+  //   sync();
+  //   save(SAVE_ALL_RECIPES, Frame());
+  //   console.log(Frame);
+  // });
 
+  const [recipes_, setRecipes] = useState([]);
+  useEffect(() => {
+    client
+      .getEntries()
+      .then((response) => {
+        console.log(response.items[0].fields.pictures);
+        setRecipes(response.items);
+      })
+      .catch(console.error);
+  });
   return (
     <>
       <div>
@@ -60,7 +72,7 @@ function Recipes({ save, recipes }) {
 
           <Container>
             <Row className="pb-5 ">
-              {Frame().map((ele, i) => (
+              {recipes_.map((ele, i) => (
                 <Col
                   key={i}
                   style={{
@@ -81,17 +93,17 @@ function Recipes({ save, recipes }) {
                         borderRadius: "2rem",
                         objectFit: "cover",
                       }}
-                      src={ele.image}
+                      src={ele.fields.pictures[0].fields.file.url}
                     />
                     <Card.Body>
                       <Card.Title
                         style={{ textDecoration: "underline overline" }}
                       >
-                        {ele.name}
+                        {ele.fields.name}
                       </Card.Title>
-                      <Card.Text>{ele.subdescription}</Card.Text>
+                      <Card.Text>{ele.fields.description}</Card.Text>
                       <Link
-                        to={`/card/${ele.name}`}
+                        to={`/card/${ele.fields.name}`}
                         className="learn-more-button"
                       >
                         view <i className="fas fa-utensils"></i>

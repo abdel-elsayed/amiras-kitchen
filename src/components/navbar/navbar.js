@@ -10,7 +10,7 @@ export default class NavBar extends Component {
     lastScrollY: 0, // Keep track of current position in state
   };
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     // When this component mounts, begin listening for scroll changes
     window.addEventListener("scroll", this.handleScroll);
   }
