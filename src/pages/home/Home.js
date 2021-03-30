@@ -1,11 +1,10 @@
-import React from 'react'
-import MyCarousal from '../../components/myCarousal/myCarousal'
+import React from "react";
+import MyCarousal from "../../components/myCarousal/myCarousal";
 
 export default function Home() {
-    return (
-        <div>
-            <MyCarousal />
-            
-        </div>
-    )
+  return (
+    <div>
+      <MyCarousal />
+    </div>
+  );
 }

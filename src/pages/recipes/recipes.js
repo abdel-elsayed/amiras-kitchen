@@ -1,19 +1,21 @@
 import React, { useEffect } from "react";
-import { useEasybase } from "easybase-react";
+import { client } from "../../ebconfig";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import { SAVE_ALL_RECIPES } from "../../redux/actions";
 import "./recipes.css";
 import { Link as Linky } from "react-scroll";
+import { useStateValue } from "../../redux/StateProvider";
 
-function Recipes({ save, recipes }) {
-  const { Frame, configureFrame, sync } = useEasybase();
+function Recipes() {
+  const [{ articles }, dispatch] = useStateValue();
 
   useEffect(() => {
-    configureFrame({ limit: 20, offset: 0 });
-    sync();
-    save(SAVE_ALL_RECIPES, Frame());
+    client
+      .getEntries()
+      .then((response) => {
+        dispatch({ type: "SAVE_ARTICLES", payload: response.items });
+      })
+      .catch(console.error);
   });
 
   return (
@@ -23,12 +25,10 @@ function Recipes({ save, recipes }) {
           className="d-block w-100 custom-img"
           src="https://images.unsplash.com/photo-1513104806186-1b00f3e7a65e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"
         ></img>
-        {/* <div className="downArrow bounce">
-          <i style={{ color: "white" }} className="fas fa-arrow-down fa-3x"></i>
-        </div> */}
+
         <div className="downArrow bounce">
           <Linky to="recipes">
-            <i class="fas fa-cookie-bite fa-3x"></i>
+            <i className="fas fa-cookie-bite fa-3x"></i>
           </Linky>
         </div>
       </div>
@@ -60,7 +60,7 @@ function Recipes({ save, recipes }) {
 
           <Container>
             <Row className="pb-5 ">
-              {Frame().map((ele, i) => (
+              {articles.map((ele, i) => (
                 <Col
                   key={i}
                   style={{
@@ -81,19 +81,16 @@ function Recipes({ save, recipes }) {
                         borderRadius: "2rem",
                         objectFit: "cover",
                       }}
-                      src={ele.image}
+                      src={ele.fields.pictures[0].fields.file.url}
                     />
                     <Card.Body>
                       <Card.Title
                         style={{ textDecoration: "underline overline" }}
                       >
-                        {ele.name}
+                        {ele.fields.name}
                       </Card.Title>
-                      <Card.Text>{ele.subdescription}</Card.Text>
-                      <Link
-                        to={`/card/${ele.name}`}
-                        className="learn-more-button"
-                      >
+                      <Card.Text>{ele.fields.description}</Card.Text>
+                      <Link to={`/card/${i}`} className="learn-more-button">
                         view <i className="fas fa-utensils"></i>
                       </Link>
                     </Card.Body>
@@ -108,12 +105,4 @@ function Recipes({ save, recipes }) {
   );
 }
 
-const mapStateToProps = (state) => ({
-  recipes: state.recipes,
-});
-const mapDispatchToProps = (dispatch) => {
-  return {
-    save: (type, data) => dispatch({ type: type, payload: data }),
-  };
-};
-export default connect(mapStateToProps, mapDispatchToProps)(Recipes);
+export default Recipes;

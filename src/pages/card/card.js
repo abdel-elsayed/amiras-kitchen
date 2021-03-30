@@ -1,31 +1,26 @@
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
-import "./card.css";
-import { Container, Row, Col, Carousel } from "react-bootstrap";
-// import createDOMPurify from 'dompurify'
-// import { JSDOM } from 'jsdom'
+import React from "react";
 
-// const window = (new JSDOM('')).window
-// const DOMPurify = createDOMPurify(window)
+import "./card.css";
+import { useStateValue } from "../../redux/StateProvider";
+import { Container, Row, Col, Carousel } from "react-bootstrap";
 
 function Card(props) {
-  const name = props.match.params.name;
-  const recipe = props.recipes.find((element) => element.name === name);
+  const id = props.match.params.id;
+  const [{ articles }, dispatch] = useStateValue();
 
-  useEffect(() => {
-    console.log(recipe.video);
-  });
-
+  console.log("articles: ", articles);
+  const recipe = articles[id];
+  const { name, pictures, directions, video, ingredients } = recipe.fields;
   return (
     <div>
-      <div className="recipe-name">{recipe.name}</div>
+      <div className="recipe-name">{name}</div>
       <Container>
         <Row>
           <Col md={5}>
             <Carousel>
               <Carousel.Item>
                 <img
-                  src={recipe.image}
+                  src={pictures[0].fields.file.url}
                   style={{
                     objectFit: "cover",
                     height: "30rem",
@@ -37,7 +32,7 @@ function Card(props) {
               </Carousel.Item>
               <Carousel.Item>
                 <img
-                  src={recipe.image2}
+                  src={pictures[1].fields.file.url}
                   style={{
                     objectFit: "cover",
                     height: "30rem",
@@ -58,7 +53,7 @@ function Card(props) {
                   padding: "1rem",
                   textDecoration: "none",
                 }}
-                dangerouslySetInnerHTML={{ __html: recipe.description }}
+                dangerouslySetInnerHTML={{ __html: ingredients }}
               />
             }
           </Col>
@@ -71,7 +66,7 @@ function Card(props) {
             {
               <div
                 className="directions"
-                dangerouslySetInnerHTML={{ __html: recipe.directions }}
+                dangerouslySetInnerHTML={{ __html: directions }}
               />
             }
           </Col>
@@ -86,7 +81,7 @@ function Card(props) {
                 border: "5px solid #904785",
                 borderRadius: "2rem",
               }}
-              src={recipe.video}
+              src={video}
               frameBorder="0"
               allow="accelerometer; autoplay; 
                     clipboard-write; encrypted-media; gyroscope; 
@@ -99,7 +94,5 @@ function Card(props) {
     </div>
   );
 }
-const mapStateToProps = function (state) {
-  return { recipes: state.recipes };
-};
-export default connect(mapStateToProps)(Card);
+
+export default Card;
