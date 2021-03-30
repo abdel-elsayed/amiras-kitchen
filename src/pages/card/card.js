@@ -5,12 +5,12 @@ import { useStateValue } from "../../redux/StateProvider";
 import { Container, Row, Col, Carousel } from "react-bootstrap";
 
 function Card(props) {
-  const id = props.match.params.id;
   const [{ articles }, dispatch] = useStateValue();
-
-  console.log("articles: ", articles);
-  const recipe = articles[id];
-  const { name, pictures, directions, video, ingredients } = recipe.fields;
+  // const id = props.match.params.id;
+  // const recipe = articles[id];
+  const { name, pictures, directions, video, ingredients } = articles[
+    props.match.params.id
+  ].fields;
   return (
     <div>
       <div className="recipe-name">{name}</div>
