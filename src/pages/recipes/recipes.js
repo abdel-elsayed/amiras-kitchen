@@ -16,7 +16,7 @@ function Recipes() {
         dispatch({ type: "SAVE_ARTICLES", payload: response.items });
       })
       .catch(console.error);
-  });
+  }, []);
 
   return (
     <>
