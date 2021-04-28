@@ -15,7 +15,7 @@ const MyCarousal = () => {
           />
           <div className="carousel-caption quote">
             <h3 className="arabic">
-              "دائما خذ في عين الإعتبار أن قرار النجاح هو أهم من أي شيئ آخر"
+              "دائماً خذ في عين الإعتبار أن قرار النجاح هو أهم من أي شيئ آخر"
             </h3>
             <h3 className="english">
               "Always bear in mind that your own resolution to succeed is more
