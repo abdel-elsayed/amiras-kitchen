@@ -48,7 +48,7 @@ const MyCarousal = () => {
           <div className="carousel-caption  quote">
             <h3 className="arabic">"الجمال في كل مكان، فقط علينا النظر"</h3>
             <h3 className="english">
-              "The beauty is everywhere, we just need to look"
+              "The beauty is everywhere, you just need to look"
             </h3>
           </div>
         </Carousel.Item>
